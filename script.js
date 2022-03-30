@@ -2,7 +2,7 @@
 // Cerveja - 1200 ml por pessoa + de 6 horas - 2000 ml
 // Refrigerante ou água - 1000 ml por pessoa + de 6 horas 1500ml
 // Crianças valem por 0,5
-
+// Garrafa de vodka - 2 garrafa por pessoa + de 6 horas ED PULANDO O MURO || mais uma garrafa
 
 let inputAdultos = document.getElementById("adultos");
 let inputCriancas = document.getElementById("criancas");
@@ -19,13 +19,15 @@ function calcular() {
     let duracao = inputDuracao.value;
 
 
-    let qtdTotalCarne = carnePP(duracao) * adultos + (carnePP(duracao) / 2 * criancas);
-    let qtdTotalCerveja = cervejaPP(duracao) * adultos;
-    let qtdTotalBebidas = bebidasPP(duracao) * adultos + (bebidasPP(duracao) / 2 * criancas);;
+    let qdtTotalCarne = carnePP(duracao) * adultos + (carnePP(duracao) / 2 * criancas);
+    let qdtTotalCerveja = cervejaPP(duracao) * adultos;
+    let qdtTotalBebidas = bebidasPP(duracao) * adultos + (bebidasPP(duracao) / 2 * criancas);
 
-    resultado.innerHTML = `<p>${qtdTotalCarne / 1000}KG de Carne</p>`
-    resultado.innerHTML += `<p>${Math.ceil(qtdTotalCerveja / 355)}Latas de Cerveja</p>`
-    resultado.innerHTML += `<p>${Math.ceil(qtdTotalBebidas / 2000)}Garrafas de Bebidas</p>`
+    resultado.innerHTML = `<p>${qdtTotalCarne / 1000} KG de Carne</p>`
+    resultado.innerHTML += `<p>${Math.ceil(qdtTotalCerveja / 1000)} Litrão de Cerveja</p>`
+    resultado.innerHTML += `<p>ou ${Math.ceil(qdtTotalCerveja / 350)}  Latas de Cerveja</p>`
+    resultado.innerHTML += `<p>${Math.ceil(qdtTotalCerveja / 2000)} Garrafa de Vodka!</p>`
+    resultado.innerHTML += `<p>${Math.ceil(qdtTotalBebidas / 2000)} Garrafas de Coca</p>`
 
 
 
@@ -44,9 +46,9 @@ function carnePP(duracao) {
 function cervejaPP(duracao) {
 
     if (duracao >= 6) {
-        return 2000;
+        return 8000;
     } else {
-        return 1200;
+        return 4200;
     }
 
 }
